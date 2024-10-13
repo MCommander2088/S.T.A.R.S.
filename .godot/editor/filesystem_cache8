@@ -1,0 +1,13 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1728818189
+camera.gd::GDScript::-1::1728816756::0::1::::<>CharacterBody3D<>::
+camera.tscn::PackedScene::-1::1728817694::0::1::::<><>::
+console.gd::GDScript::-1::1728816236::0::1::::<>Control<>::
+console.tscn::PackedScene::-1::1728817694::0::1::::<><>::
+default_bus_layout.tres::AudioBusLayout::-1::1728781848::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1728817841::0::1::::<><>::
+icon.svg::CompressedTexture2D::5761764783707338324::1728750485::1728818190::1::::<><>::
+object.gd::GDScript::-1::1728817444::0::1::::<>CharacterBody3D<>::
+object.tscn::PackedScene::-1::1728817762::0::1::::<><>::
+world.gd::GDScript::-1::1728816269::0::1::::<>Node3D<>::
+world.tscn::PackedScene::-1::1728817694::0::1::::<><>::

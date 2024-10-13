@@ -1,0 +1,12 @@
+CharacterBody3D
+Camera3D
+CollisionShape3D
+Panel
+Label
+TextEdit
+Timer
+OmniLight3D
+DirectionalLight3D
+WorldEnvironment
+CSGSphere3D
+VehicleBody3D

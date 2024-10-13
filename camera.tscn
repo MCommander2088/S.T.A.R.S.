@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6adrp6lu81x8"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_2b2oh"]
+
+[node name="Camera" type="CharacterBody3D"]
+script = ExtResource("1_2b2oh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
