@@ -23,6 +23,10 @@ run/max_fps=60
 boot_splash/bg_color=Color(0.174499, 0.43194, 0.701783, 1)
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="S.T.A.R.S."
+
 [input]
 
 console={

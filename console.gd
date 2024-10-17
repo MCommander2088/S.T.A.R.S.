@@ -19,11 +19,11 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ESCAPE:
-			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
-			else:
-				Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+		#if event.pressed and event.keycode == KEY_ESCAPE:
+		#	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		#		Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
+		#	else:
+		#		Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 		if event.pressed and event.keycode == KEY_QUOTELEFT:
 			toggle_menu()
 		if event.pressed and event.keycode == KEY_UP:
@@ -36,28 +36,39 @@ func _input(event):
 				textedit.text = coms[c_i]
 		if event.pressed and event.keycode == KEY_ENTER:
 			c_i = 0
-			command(textedit.text.split("\n")[0])
+			var command_full = textedit.text.split("\n")[0]
+			if ";" in command_full:
+				for com in command_full.split(";"):
+					command(com)
+			else:
+				command(command_full)
 			textedit.text = ""
 	
 
 func toggle_menu():
 	is_menu_open = not is_menu_open  # 反转菜单状态
 	self.visible = is_menu_open  # 根据状态显示或隐藏菜单
-	if self.visible:
-		Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+	#if self.visible:
+	#	Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
+	#else:
+	#	Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 
 func command(com) -> void:
 	coms.append(com)
 	label.text += "\n>"+com
 	if not " " in com:
+		if str(com) == "quit":
+			get_tree().quit()
 		if str(com) == "cls":
 			label.text = ""
 		if str(com) == "list":
 			log_info("all objects:")
 			for obj in world.objs:
 				log_info(obj)
+		if str(com) == "delete_all":
+			world.delete_all()
+			log_info("deleted all objects")
+
 	else:
 		com = com.split(" ")
 		print(com)
@@ -77,6 +88,12 @@ func command(com) -> void:
 		
 		if com[0] == "speed":
 			world.speed = float(com[1])
+		
+		if com[0] == "camera":
+			if com[1] == "free":
+				world.camera_statue = "free"
+			elif com[1] == "follow":
+				world.camera_statue = com[2]
 
 func log_info(text):
 	label.text += "\n[info] "+str(text)
